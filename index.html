@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Truth or Dare — Tell or Drink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Nunito:wght@800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="orb orb-left"></div><div class="orb orb-right"></div>
+
+  <header>
+    <button class="logo" id="homeBtn">Truth <i>or</i> <strong>Dare</strong></button>
+    <button class="settings-btn" id="settingsBtn">⚙</button>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section id="home" class="screen active">
+      <div class="hero">
+        <div class="bubble truth">TRUTH</div>
+        <div>
+          <div class="eyebrow">JUST TWO OF YOU · ONE GAME</div>
+          <h1>Truth <span>or</span> Dare</h1>
+          <p class="hero-title">Tell the truth or take the dare.</p>
+          <p class="hero-sub">Don't want to answer? <b>Drink.</b></p>
+          <button class="primary" id="startBtn">Start Game <span>→</span></button>
+        </div>
+        <div class="bubble dare">DARE</div>
+      </div>
+
+      <div class="mode-row">
+        <div class="mode-card truth-card">
+          <div class="mode-icon">💬</div>
+          <h3>TRUTH</h3>
+          <p>Answer honestly</p>
+          <small>or take a drink</small>
+        </div>
+        <div class="or-divider">OR</div>
+        <div class="mode-card dare-card">
+          <div class="mode-icon">🔥</div>
+          <h3>DARE</h3>
+          <p>Do the dare</p>
+          <small>or take a drink</small>
+        </div>
+      </div>
+
+      <p class="footer-line">Two players. No complicated rules. Just play.</p>
+    </section>
+
+    <!-- PLAYERS -->
+    <section id="players" class="screen">
+      <button class="back" data-screen="home">← Back</button>
+      <div class="center">
+        <div class="eyebrow">2 PLAYERS</div>
+        <h2>Who's playing?</h2>
+        <p>Enter the two names and you're ready.</p>
+      </div>
+      <div class="two-players">
+        <label class="player-card">
+          <span class="player-number">1</span>
+          <span>PLAYER ONE</span>
+          <input id="playerOne" value="Alex" maxlength="24">
+        </label>
+        <div class="vs">VS</div>
+        <label class="player-card">
+          <span class="player-number pink">2</span>
+          <span>PLAYER TWO</span>
+          <input id="playerTwo" value="Sarah" maxlength="24">
+        </label>
+      </div>
+      <button class="primary next" id="playersNext">Let's Play →</button>
+    </section>
+
+    <!-- GAME -->
+    <section id="game" class="screen">
+      <div class="game-header">
+        <button class="back" data-screen="players">← Players</button>
+        <div class="round">ROUND <b id="round">1</b></div>
+        <button class="small-settings" id="gameSettings">⚙</button>
+      </div>
+
+      <div class="turn">
+        <div class="avatar" id="avatar">A</div>
+        <div><small>YOUR TURN</small><h2 id="turnName">Alex</h2></div>
+      </div>
+
+      <div class="pick" id="pick">
+        <p>What do you choose?</p>
+        <div class="pick-grid">
+          <button class="pick-card truth-pick" data-type="truth">
+            <span>💬</span><strong>TRUTH</strong><small>Tell it or drink</small>
+          </button>
+          <button class="pick-card dare-pick" data-type="dare">
+            <span>🔥</span><strong>DARE</strong><small>Do it or drink</small>
+          </button>
+        </div>
+      </div>
+
+      <article class="challenge hidden" id="challenge">
+        <div class="tag" id="challengeTag">TRUTH</div>
+        <p id="challengeText"></p>
+
+        <div class="action-label" id="actionLabel">ANSWER HONESTLY</div>
+        <div class="actions">
+          <button class="action-main" id="doneBtn">✓ I DID IT</button>
+          <button class="drink" id="drinkBtn">🍹 DRINK</button>
+        </div>
+        <button class="another" id="anotherBtn">↻ Another Question</button>
+      </article>
+
+      <div class="player-bar">
+        <div class="mini-player current"><span id="miniOne">A</span><b id="miniNameOne">Alex</b></div>
+        <div class="line"></div>
+        <div class="mini-player"><span id="miniTwo">S</span><b id="miniNameTwo">Sarah</b></div>
+      </div>
+    </section>
+
+    <!-- RESULT -->
+    <section id="result" class="screen result">
+      <div class="eyebrow">ROUND COMPLETE</div>
+      <div class="result-icon" id="resultIcon">🔥</div>
+      <h2 id="resultText">Alex completed the dare!</h2>
+      <p id="resultSub">Your turn is done. Pass it over.</p>
+      <button class="primary" id="nextBtn">Next Player →</button>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="settings">
+    <div class="modal">
+      <button class="close" id="closeSettings">×</button>
+      <div class="eyebrow">SETTINGS</div>
+      <h2>Game Settings</h2>
+      <label><span>🔊 Sound Effects</span><input type="checkbox" checked></label>
+      <label><span>🎵 Music</span><input type="checkbox" checked></label>
+      <button class="setting-action" id="restart">↻ Restart Game <b>›</b></button>
+      <button class="setting-action" id="changePlayers">👥 Change Players <b>›</b></button>
+      <button class="setting-action danger" id="exit">↪ Exit Game <b>›</b></button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
